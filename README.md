@@ -1,0 +1,2 @@
+# Tanulos
+Szoftverfejlesztes
