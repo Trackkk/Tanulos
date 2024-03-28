@@ -7,6 +7,7 @@ Szoftverfejlesztes
             ThingManagerImpl manager = new ThingManagerImpl();
             manager.processThings();
     }
+----
 
     public static class CountryManager {
 
