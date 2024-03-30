@@ -1,15 +1,15 @@
 8. A Java SE/JDK új lehetőségei:
-Boilerplate kód fogalma: 
+**Boilerplate kód fogalma:**
 	A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
-Előzetes lehetőség (preview feature):
+**Előzetes lehetőség (preview feature):**
 	Az előzetes lehetőségek három fajtája: előzetes nyelvi lehetőségek, előzetes VM lehetőségek, előzetes API-k. 
 		- pontosan meghatározott, teljesen implementált, de még nem végleges. 
 		- soha nem kísérleti, kockázatos, hiányos vagy instabil.
 		- A JDK parancssori eszközöknek a --enable-preview parancssori opciót kell megadni az előzetes lehetőségek engedélyezéséhez. 
 	
 	
-Lokális változók kikövetkeztetés:
+**Lokális változók kikövetkeztetés:**
 	A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
 	A nem null kezdőértékű lokális változók típus megadása nélkül deklarálhatók a "var" azonosítóval.
 	A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
@@ -37,7 +37,7 @@ Helytelen(Hibát okoz):
 	
 	
 	
-Switch utasítás/kifejezések:
+**Switch utasítás/kifejezések:**
 	Minden lehetséges esethez kell, hogy legyen egy illeszkedő címke, azaz default záradék szükséges kivéve, az összes enum konstanst lefedő enum switch kifejezéseknél.
 	Switch kifejezésnek vagy normális módon egy értékkel kell befejeződnie, vagy váratlanul egy kivétel dobásával.
 	A switch címke egy új formája (case ... ->) került bevezetésre, mely esetenként több vesszővel elválasztott konstanst is megenged. 
@@ -69,7 +69,7 @@ Switch utasítás/kifejezések:
 		}
 	}
 
-Szövegblokkok:
+**Szövegblokkok:**
 	Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ahol egy közönséges sztring literál.  Pl.: 
 	
 Régi stílusú inicializálás:
@@ -102,7 +102,7 @@ Régi stílusú inicializálás:
 		""";
 	
 	
-Mintaillesztés az instanceof operátorhoz:
+**Mintaillesztés az instanceof operátorhoz:**
 	Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
 	Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
 	
@@ -113,7 +113,7 @@ Mintaillesztés az instanceof operátorhoz:
 	}
 	
 	
-Rekord osztályok:
+**Rekord osztályok:**
 	A java.lang.Record osztály alosztályai.
 	Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
 	Egy rekord osztálynak minden egyes komponenséhez van egy implicit módon deklarált lekérdező metódusa. Van implicit módon deklarált konstruktora, equals(), hashCode() és toString() metódusa is
@@ -125,7 +125,7 @@ Rekord osztályok:
 	System.out.println(legoSet.year()); // 2018
 	
 	
-Sztring sablonok:
+**Sztring sablonok:**
 	Számos programozási nyelv (pl.: a C#, JavaScript, Python)  teszi lehetővé a sztring interpolációt a sztring összefűzés alternatívájaként. 
 	Az interpoláció kifejezések sztring literálokba történő beágyazását jelenti, melyek automatikusan kiértékelésre és az értékükkel való helyettesítésre kerülnek.
 	Az interpoláció veszélyes lehet, mivel ki van téve a befecskendezéses támadásoknak.
@@ -134,7 +134,7 @@ Sablon kifejezések
 	var width = 1024;
 	var height = 768;
 	var s = STR."\{width} * \{height} = \{width * height}";
-System.out.println(s);
+	System.out.println(s);
 	
 	var r = 3.0;
 	var s = FMT."""
@@ -150,7 +150,7 @@ System.out.println(s);
 	
 
 2. A Java haladó szintű lehetőségei:
-Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:
+**Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:**
 	Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
 	
 	Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik lehetővé új metódusok hozzáadását egy interfészhez, hogy azok automatikusan rendelkezésre állnak minden implementációban. (Ráadásul ezen metódusok hozzáadása nem igényli a létező implementációk módosítását vagy újra fordítását. Ezt bináris kompatibilitásnak nevezik.)
@@ -176,18 +176,17 @@ Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:
 	Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
 	
 
-java.util.Optional: 
+**java.util.Optional: **
 	Egy konténer objektum, mely vagy tartalmaz egy nem null értéket, vagy nem.
 	Elsődlegesen olyan metódusok visszatérési típusaként szolgál, melyeknél egyértelműen szükséges a „nincs eredmény” ábrázolása és ahol null használata valószínűleg hibát okoz.
 	Egy Optional típusú változó értéke soha nem szabad, hogy null legyen, mindig egy Optional példányra kell, hogy mutasson.
 	
 	
-Funkcionális interfészek:
+**Funkcionális interfészek:**
 	Egy olyan interfész, melynek csak egy absztrakt metódusa van. De akár több alapértelmezett, statikus és/vagy privát metódusa is lehet.
 	
 
-Beépített funkcionális interfészek: 
-
+**Beépített funkcionális interfészek: **
 	Consumer:  java.util.function.Consumer<T>
 				- Egyetlen input argumentumot vár és nem ad vissza eredményt  és várhatóan mellékhatást fejt ki
 				- Funkcionális metódusa: void accept(T t).
@@ -195,6 +194,7 @@ Beépített funkcionális interfészek:
 					andThen(after): egy összetett Consumer-t ad vissza, mely először a példány által ábrázolt műveletet hajtja vége, majd az after műveletet
 
 
+.
 	Function: java.util.function.Function <T, R>
 				- Egy eredményt létrehozó egyargumentumú függvényt ábrázol.
 				- Funkcionális metódusa: R apply(T t).
@@ -202,20 +202,22 @@ Beépített funkcionális interfészek:
 					andThen(after): visszaad egy összetett függvényt, mely először a példány által ábrázolt függvényt alkalmazza a bemenetére, majd az after függvényt az eredményre. 
 					compose(before): visszaad egy összetett függvényt, mely először a before függvényt alkalmazza a bemenetére, majd a példány által ábrázolt függvényt az eredményre. 
 					identity(): visszaad egy, mindig az argumentumát visszaadó függvényt. 
-				
+
+.
 		Predicate: java.util.function.Predicate<T>
 				- Egy egyargumentumú predikátumot (logikai értékű függvényt) ábrázol.
 				- Funkcionális metódusa: boolean test(T t). 
 				- Nem absztrakt metódusai:
 					and(other), or(other): visszaad egy összetett predikátumot, mely a példány és az other predikátum logikai konjunkcióját/diszjunkcióját ábrázolja.
 					negate(): visszaad egy, a példány logikai negáltját ábrázoló predikátumot.
-				
+
+.
 		Supplier:  java.util.function.Supplier<T>
 				-  Egy eredményeket szolgáltató objektumot ábrázol. 
 				- Funkcionális metódusa: T get().
 				- Nem absztrakt metódusai: nincsenek
 
-	Lambda kifejezések:
+**Lambda kifejezések:**
 	Egy funkcionális interfészt implementáló névtelen belső osztály egy példányát ábrázolják nagyon tömören. 
 
 	new VmilyenFunkcionálisInterfész() {
@@ -224,11 +226,13 @@ Beépített funkcionális interfészek:
 			törzs
 		}
 	}
-	Vele ekvivalens lambda kifejezés:
+Vele ekvivalens lambda kifejezés:
+
 	 (paraméterek) -> {törzs}
 	
 
-Metódus referenciák: Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
+**Metódus referenciák: **
+Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
 	Lambda helyett: Function<String, Integer> stringLength = (str) -> str.length();
 metódus referencia: Function<String, Integer> stringLength = String::length;
 	
@@ -246,7 +250,7 @@ metódus referencia: Function<String, Integer> stringLength = String::length;
 	Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttük tárhely. Egy művelet egy streamen egy eredményt hoz létre, de nem módosítja a stream forrását. Streameket létre lehet hozni: Kollekciókból, Tömbökből, Egyedi objektumokból. 
 	
 
-Stream műveletek: 
+**Stream műveletek: **
 		Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
 		
 Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékhatást eredményeznek. Tehát void vagy nem stream visszatérési típusúak. Példák: count(), max(), forEach()
@@ -256,54 +260,40 @@ Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékh
 Állapotőrző műveletek: Felhasználhatnak a korábban látott elemekből állapotot, amikor új elemeket dolgoznak fel. Példák: distinct(), sorted()
 	
 
-Streamek: viselkedési paraméterek kívánatos jellemzői (interferencia-mentesség, állapotmentesség):
+**Streamek: viselkedési paraméterek kívánatos jellemzői (interferencia-mentesség, állapotmentesség):**
 		Interferencia-mentesség: A viselkedési paraméterek nem szabad, hogy módosítsák a stream adatforrását.
-		
 		Állapotmentesség: Egy lambda kifejezés állapotőrző, ha eredménye olyan állapottól függ, mely a stream csővezeték végrehajtása során megváltozhat. 
 
-	Stream csővezetékek, műveletek kiértékelése, csővezetékek végrehajtása:
-		 Csővezetékek: Stream műveletek egy csővezetékké láncolhatók össze, mely egy forrásból áll, melyet nulla vagy több köztes művelet és egy terminális művelet követ.
-		
+**Stream csővezetékek, műveletek kiértékelése, csővezetékek végrehajtása:**
+		Csővezetékek: Stream műveletek egy csővezetékké láncolhatók össze, mely egy forrásból áll, melyet nulla vagy több köztes művelet és egy terminális művelet követ.
 		Műveletek kiértékelése:
 			A köztes műveletek mindig lusta kiértékelésűek. Egy köztes művelet végrehajtása nem eredményez műveletvégzést.
-			 
 			A terminális műveletek majdnem minden esetben mohó kiértékelésűek. Egy terminális művelet végrehajtása indítja el az adatforrás bejárását, a csővezeték feldolgozása a visszatérés előtt fejeződik be.
-	
 		Csővezetékek végrehajtása: Vertikálisan történik, ami csökkentheti az elemeken végrehajthandó műveletek számát. 
 									A terminális művelet végrehajtása során a csővezeték elhasználódik és nem használható többé.
 	Streamek: redukciós műveletek (reduce, collect):
 			- egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
-			
 			Reduce: elemek egy sorozatát egyetlen elemre redukálja.
 				- Egységelem (identity): a redukció kezdőértéke, alapértelmezett értéke, ha nincsenek input elem
-				
 				- Akkumulátor (accumulator): egy függvény, mely két paramétert kap (a redukció egy részleges eredményét, következő elemet) -> új részleges eredményt állít elő.
-				
 				- Egyesítő (combiner): egy kétparaméteres függvény, mely két részleges eredményt kap -> egy új részleges eredménnyé egyesíti. 
-				
 			A reduce() műveletnek három formája van: 
 				reduce(akkumulátor)
 				reduce(egységelem, akkumulátor)
 				reduce(egységelem, akkumulátor, egyesítő)
-			
-			
 			Collect:  egy módosítható eredmény konténerbe (pl. egy kollekció vagy egy StringBuilder) gyűjti össze az input elemeket a stream elemeinek feldolgozásakor
 				- Ellátó (supplier): egy új módosítható eredmény konténert létrehozó függvény
-				
 				- Akkumulátor (accumulator): egy konténerbe egy elemet helyező függvény.
-				
 				- Egyesítő (combiner): egy függvény, mely két részleges eredmény konténert fésül össze, a második konténer elemeit az első konténerbe helyezi
-				
 				- Befejező (finisher): egy végső transzformációt végez egy eredmény konténeren
-				
 				- Gyűjtő (collector): egy ellátó, egy akkumulátor, egy egyesítő és egy opcionális befejező alkotja.
-				
 			A collect() műveletnek két formája van:
 				collect(ellátó, akkumulátor, egyesítő)
 				collect(gyűjtő)
 			
 	
-	Streamek: párhuzamosság: stream megvalósításai szekvenciális streameket hoznak létre, hacsak nem kérünk kifejezetten párhuzamosságot [ stream(), parallelStream() ]. A findAny()) kivételével egy számítás eredményét nem befolyásolja az, hogy szekvenciális vagy párhuzamos. 
+**Streamek: párhuzamosság:**
+stream megvalósításai szekvenciális streameket hoznak létre, hacsak nem kérünk kifejezetten párhuzamosságot [ stream(), parallelStream() ]. A findAny()) kivételével egy számítás eredményét nem befolyásolja az, hogy szekvenciális vagy párhuzamos. 
 	Így kaphatunk párhuzamos streamet:
 kollekció parallelStream(), már létező szekvenciális stream parallel().
 	A párhuzamos streamek egy megosztott szálkészletet használnak, mely a ForkJoinPool.commonPool() statikus metódushívásával kapható meg. 
@@ -312,16 +302,3 @@ kollekció parallelStream(), már létező szekvenciális stream parallel().
 Gonosz számok megszámolása: a párhuzamos streammel gyorsabb mint a szekvenciális streammel.
 	A számok listába gyűjtése: ekkor a szekvenciális stream gyorsabb.
 	A gonosz számok számolása hagyományos for ciklussal :  a szekvenciális stream gyorsabb.
-	
-
-
-
-
-
-
-
-
-
-
-
-![image](https://github.com/Trackkk/Tanulos/assets/113309979/34431828-5032-4981-8b51-b3f944c0d55f)
