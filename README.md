@@ -178,7 +178,7 @@ Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. L
 Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
 	
 
-**java.util.Optional: **
+**java.util.Optional:**
 	Egy konténer objektum, mely vagy tartalmaz egy nem null értéket, vagy nem.
 	Elsődlegesen olyan metódusok visszatérési típusaként szolgál, melyeknél egyértelműen szükséges a „nincs eredmény” ábrázolása és ahol null használata valószínűleg hibát okoz.
 	Egy Optional típusú változó értéke soha nem szabad, hogy null legyen, mindig egy Optional példányra kell, hogy mutasson.
