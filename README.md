@@ -269,12 +269,14 @@ Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttü
 		Állapotmentesség: Egy lambda kifejezés állapotőrző, ha eredménye olyan állapottól függ, mely a stream csővezeték végrehajtása során megváltozhat. 
 
 **Stream csővezetékek, műveletek kiértékelése, csővezetékek végrehajtása:**
-		Csővezetékek: Stream műveletek egy csővezetékké láncolhatók össze, mely egy forrásból áll, melyet nulla vagy több köztes művelet és egy terminális művelet követ.
-		Műveletek kiértékelése:
+- Csővezetékek: Stream műveletek egy csővezetékké láncolhatók össze, mely egy forrásból áll, melyet nulla vagy több köztes művelet és egy terminális művelet követ.
+- Műveletek kiértékelése:
 			A köztes műveletek mindig lusta kiértékelésűek. Egy köztes művelet végrehajtása nem eredményez műveletvégzést.
 			A terminális műveletek majdnem minden esetben mohó kiértékelésűek. Egy terminális művelet végrehajtása indítja el az adatforrás bejárását, a csővezeték feldolgozása a visszatérés előtt fejeződik be.
-		Csővezetékek végrehajtása: Vertikálisan történik, ami csökkentheti az elemeken végrehajthandó műveletek számát. 
-									A terminális művelet végrehajtása során a csővezeték elhasználódik és nem használható többé.
+- Csővezetékek végrehajtása: Vertikálisan történik, ami csökkentheti az elemeken végrehajthandó műveletek számát. 
+A terminális művelet végrehajtása során a csővezeték elhasználódik és nem használható többé.
+
+
 **Streamek: redukciós műveletek (reduce, collect):**
 egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
 	- Reduce: elemek egy sorozatát egyetlen elemre redukálja.
