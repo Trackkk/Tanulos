@@ -159,13 +159,13 @@ Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik le
 Implicit módon absztrakt minden olyan interfész metódus, melynek nincs private, default vagy static módosítója.
 
 Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
-	Amikor egy interfész kiterjeszt egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
+-	Amikor egy interfész kiterjeszt egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
 	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
 	– Újradefiniálhatja a metódust, felülírva azt.
 	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az implementáló osztályokat.
 
--
-	Hasonlóan, amikor egy osztály implementál egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
+
+-	Hasonlóan, amikor egy osztály implementál egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
 	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
 	– Újradefiniálhatja a metódust, felülírva azt.
 	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az alosztályokat. (Ez a lehetőség csak akkor adott, ha az osztály absztrakt.)
