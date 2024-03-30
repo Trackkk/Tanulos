@@ -1,18 +1,18 @@
-1. A Java SE/JDK új lehetőségei:
-Boilerplate kód fogalma: 
-A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
+#8. A Java SE/JDK új lehetőségei:
+###Boilerplate kód fogalma: 
+	A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
-Előzetes lehetőség (preview feature):
+###Előzetes lehetőség (preview feature):
 	Az előzetes lehetőségek három fajtája: előzetes nyelvi lehetőségek, előzetes VM lehetőségek, előzetes API-k. 
 		- pontosan meghatározott, teljesen implementált, de még nem végleges. 
 		- soha nem kísérleti, kockázatos, hiányos vagy instabil.
 		- A JDK parancssori eszközöknek a --enable-preview parancssori opciót kell megadni az előzetes lehetőségek engedélyezéséhez. 
 	
 	
-Lokális változók kikövetkeztetés:
-A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
+###Lokális változók kikövetkeztetés:
+	A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
 	A nem null kezdőértékű lokális változók típus megadása nélkül deklarálhatók a "var" azonosítóval.
-A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
+	A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
 
 Helyes:
 		var i = 0;
@@ -25,7 +25,7 @@ Helyes:
 		var lines = Files.readAllLines(Path.of("file.txt"));
 	
 	
-	Helytelen(Hibát okoz):
+Helytelen(Hibát okoz):
 		var a = 1, b = 2;
 		var[] c = new int[5];
 		var d = {1, 2, 3};
@@ -35,8 +35,8 @@ Helyes:
 	
 	
 	
-	Switch utasítás/kifejezések:
-Minden lehetséges esethez kell, hogy legyen egy illeszkedő címke, azaz default záradék szükséges kivéve, az összes enum konstanst lefedő enum switch kifejezéseknél.
+Switch utasítás/kifejezések:
+	Minden lehetséges esethez kell, hogy legyen egy illeszkedő címke, azaz default záradék szükséges kivéve, az összes enum konstanst lefedő enum switch kifejezéseknél.
 	Switch kifejezésnek vagy normális módon egy értékkel kell befejeződnie, vagy váratlanul egy kivétel dobásával.
 	A switch címke egy új formája (case ... ->) került bevezetésre, mely esetenként több vesszővel elválasztott konstanst is megenged. 
 	Ha egy címke illeszkedik, akkor csak a nyíl jobb oldalán lévő kifejezés vagy utasítás kerül végrehajtásra, nincs “átesés”
@@ -67,10 +67,11 @@ Minden lehetséges esethez kell, hogy legyen egy illeszkedő címke, azaz defaul
 		}
 	}
 
-Szövegblokkok:
+###Szövegblokkok:
 	Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ahol egy közönséges sztring literál.  Pl.: 
 	
-	Régi stílusú inicializálás:
+Régi stílusú inicializálás:
+
 	String html = "<!DOCTYPE html>\n" +
 	"<html lang=\"en\">\n" +
 		" <head>\n" +
@@ -83,7 +84,8 @@ Szövegblokkok:
 	"</html>\n";
 	
 	
-	Új stílusú inicializálás szöveggblokk segítségével:
+Új stílusú inicializálás szöveggblokk segítségével:
+
 	var html = """
 		<!DOCTYPE html>
 		<html lang="en">
@@ -98,7 +100,7 @@ Szövegblokkok:
 		""";
 	
 	
-Mintaillesztés az instanceof operátorhoz:
+###Mintaillesztés az instanceof operátorhoz:
 	Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
 	Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
 	
@@ -109,7 +111,7 @@ Mintaillesztés az instanceof operátorhoz:
 	}
 	
 	
-Rekord osztályok:
+###Rekord osztályok:
 	A java.lang.Record osztály alosztályai.
 	Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
 	
