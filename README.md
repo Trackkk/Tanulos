@@ -1,4 +1,4 @@
-A Java SE/JDK új lehetőségei:
+# A Java SE/JDK új lehetőségei:
 
 
 **Boilerplate kód fogalma:**
@@ -152,7 +152,7 @@ A Java SE/JDK új lehetőségei:
 	
 
 
-#A Java haladó szintű lehetőségei:#
+# A Java haladó szintű lehetőségei:
    
 **Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:**
 
