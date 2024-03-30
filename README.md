@@ -1,4 +1,4 @@
-#8. A Java SE/JDK új lehetőségei:
+8. A Java SE/JDK új lehetőségei:
 Boilerplate kód fogalma: 
 	A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
@@ -116,10 +116,8 @@ Mintaillesztés az instanceof operátorhoz:
 Rekord osztályok:
 	A java.lang.Record osztály alosztályai.
 	Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
-	
 	Egy rekord osztálynak minden egyes komponenséhez van egy implicit módon deklarált lekérdező metódusa. Van implicit módon deklarált konstruktora, equals(), hashCode() és toString() metódusa is
 	Pl.:
-
 	record LegoSet(String number, Year year, int pieces) {}
 	var legoSet = new LegoSet("75211", Year.of(2018), 519);
 	System.out.println(legoSet.number()); // 75211
