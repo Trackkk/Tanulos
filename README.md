@@ -278,24 +278,24 @@ A terminális művelet végrehajtása során a csővezeték elhasználódik és 
 
 
 **Streamek: redukciós műveletek (reduce, collect):**
-egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
-	- Reduce: elemek egy sorozatát egyetlen elemre redukálja.
-		- Egységelem (identity): a redukció kezdőértéke, alapértelmezett értéke, ha nincsenek input elem
-		- Akkumulátor (accumulator): egy függvény, mely két paramétert kap (a redukció egy részleges eredményét, következő elemet) -> új részleges eredményt állít elő.
-		- Egyesítő (combiner): egy kétparaméteres függvény, mely két részleges eredményt kap -> egy új részleges eredménnyé egyesíti. 
-	- A reduce() műveletnek három formája van: 
-		reduce(akkumulátor)
-		reduce(egységelem, akkumulátor)
-		reduce(egységelem, akkumulátor, egyesítő)
-	- Collect:  egy módosítható eredmény konténerbe (pl. egy kollekció vagy egy StringBuilder) gyűjti össze az input elemeket a stream elemeinek feldolgozásakor
-		- Ellátó (supplier): egy új módosítható eredmény konténert létrehozó függvény
-		- Akkumulátor (accumulator): egy konténerbe egy elemet helyező függvény.
-		- Egyesítő (combiner): egy függvény, mely két részleges eredmény konténert fésül össze, a második konténer elemeit az első konténerbe helyezi
-		- Befejező (finisher): egy végső transzformációt végez egy eredmény konténeren
-		- Gyűjtő (collector): egy ellátó, egy akkumulátor, egy egyesítő és egy opcionális befejező alkotja.
+- egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
+- Reduce: elemek egy sorozatát egyetlen elemre redukálja.
+	- *Egységelem (identity):* a redukció kezdőértéke, alapértelmezett értéke, ha nincsenek input elem
+	- *Akkumulátor (accumulator):* egy függvény, mely két paramétert kap (a redukció egy részleges eredményét, következő elemet) -> új részleges eredményt állít elő.
+	- *Egyesítő (combiner):* egy kétparaméteres függvény, mely két részleges eredményt kap -> egy új részleges eredménnyé egyesíti. 
+- A reduce() műveletnek három formája van: 
+	reduce(akkumulátor)
+	reduce(egységelem, akkumulátor)
+	reduce(egységelem, akkumulátor, egyesítő)
+- Collect:  egy módosítható eredmény konténerbe (pl. egy kollekció vagy egy StringBuilder) gyűjti össze az input elemeket a stream elemeinek feldolgozásakor
+	- *Ellátó (supplier):* egy új módosítható eredmény konténert létrehozó függvény
+	- *Akkumulátor (accumulator):* egy konténerbe egy elemet helyező függvény.
+	- *Egyesítő (combiner):* egy függvény, mely két részleges eredmény konténert fésül össze, a második konténer elemeit az első konténerbe helyezi
+	- *Befejező (finisher):* egy végső transzformációt végez egy eredmény konténeren
+	- *Gyűjtő (collector):* egy ellátó, egy akkumulátor, egy egyesítő és egy opcionális befejező alkotja.
 	- A collect() műveletnek két formája van:
-		collect(ellátó, akkumulátor, egyesítő)
-		collect(gyűjtő)
+		- collect(ellátó, akkumulátor, egyesítő)
+		- collect(gyűjtő)
 			
 	
 **Streamek: párhuzamosság:**
