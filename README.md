@@ -152,29 +152,30 @@ Sablon kifejezések
 A Java haladó szintű lehetőségei:
    
 **Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:**
-	Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
+Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
 	
-	Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik lehetővé új metódusok hozzáadását egy interfészhez, hogy azok automatikusan rendelkezésre állnak minden implementációban. (Ráadásul ezen metódusok hozzáadása nem igényli a létező implementációk módosítását vagy újra fordítását. Ezt bináris kompatibilitásnak nevezik.)
+Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik lehetővé új metódusok hozzáadását egy interfészhez, hogy azok automatikusan rendelkezésre állnak minden implementációban. (Ráadásul ezen metódusok hozzáadása nem igényli a létező implementációk módosítását vagy újra fordítását. Ezt bináris kompatibilitásnak nevezik.)
 
-	Implicit módon absztrakt minden olyan interfész metódus, melynek nincs private, default vagy static módosítója.
+Implicit módon absztrakt minden olyan interfész metódus, melynek nincs private, default vagy static módosítója.
 
-	Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
+Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
 	Amikor egy interfész kiterjeszt egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
 	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
 	– Újradefiniálhatja a metódust, felülírva azt.
 	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az implementáló osztályokat.
-	
+
+-
 	Hasonlóan, amikor egy osztály implementál egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
 	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
 	– Újradefiniálhatja a metódust, felülírva azt.
 	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az alosztályokat. (Ez a lehetőség csak akkor adott, ha az osztály absztrakt.)
 		
 		
-	Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. Lehetővé teszik egy interfészhez kötődő konkrét segédmetódusok hozzáadását közvetlenül magához az interfészhez.
+Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. Lehetővé teszik egy interfészhez kötődő konkrét segédmetódusok hozzáadását közvetlenül magához az interfészhez.
 		Fordítási hiba egy statikus metódus törzsében a "this" vagy a "super" kulcsszó előfordulása. 
 		
 		
-	Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
+Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
 	
 
 **java.util.Optional: **
@@ -188,15 +189,15 @@ A Java haladó szintű lehetőségei:
 	
 
 **Beépített funkcionális interfészek: **
-	Consumer:  java.util.function.Consumer<T>
+Consumer:  java.util.function.Consumer<T>
 				- Egyetlen input argumentumot vár és nem ad vissza eredményt  és várhatóan mellékhatást fejt ki
 				- Funkcionális metódusa: void accept(T t).
 				- Nem absztrakt metódusai:
 					andThen(after): egy összetett Consumer-t ad vissza, mely először a példány által ábrázolt műveletet hajtja vége, majd az after műveletet
 
 
-.
-	Function: java.util.function.Function <T, R>
+
+Function: java.util.function.Function <T, R>
 				- Egy eredményt létrehozó egyargumentumú függvényt ábrázol.
 				- Funkcionális metódusa: R apply(T t).
 				- Nem absztrakt metódusai:
@@ -204,17 +205,17 @@ A Java haladó szintű lehetőségei:
 					compose(before): visszaad egy összetett függvényt, mely először a before függvényt alkalmazza a bemenetére, majd a példány által ábrázolt függvényt az eredményre. 
 					identity(): visszaad egy, mindig az argumentumát visszaadó függvényt. 
 
-.
-		Predicate: java.util.function.Predicate<T>
+
+Predicate: java.util.function.Predicate<T>
 				- Egy egyargumentumú predikátumot (logikai értékű függvényt) ábrázol.
 				- Funkcionális metódusa: boolean test(T t). 
 				- Nem absztrakt metódusai:
 					and(other), or(other): visszaad egy összetett predikátumot, mely a példány és az other predikátum logikai konjunkcióját/diszjunkcióját ábrázolja.
 					negate(): visszaad egy, a példány logikai negáltját ábrázoló predikátumot.
 
-.
-		Supplier:  java.util.function.Supplier<T>
-				-  Egy eredményeket szolgáltató objektumot ábrázol. 
+
+Supplier:  java.util.function.Supplier<T>
+				- Egy eredményeket szolgáltató objektumot ábrázol. 
 				- Funkcionális metódusa: T get().
 				- Nem absztrakt metódusai: nincsenek
 
@@ -234,8 +235,9 @@ Vele ekvivalens lambda kifejezés:
 
 **Metódus referenciák: **
 Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
-	Lambda helyett: Function<String, Integer> stringLength = (str) -> str.length();
-metódus referencia: Function<String, Integer> stringLength = String::length;
+
+Lambda: Function<String, Integer> stringLength = (str) -> str.length();
+Metódus referencia: Function<String, Integer> stringLength = String::length;
 	
 	IntSupplier supplier = "Hello, World!"::length;
 	System.out.println(supplier.getAsInt()); // 13
@@ -247,12 +249,12 @@ metódus referencia: Function<String, Integer> stringLength = String::length;
 	
 	
 		
-	Streamek:
-	Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttük tárhely. Egy művelet egy streamen egy eredményt hoz létre, de nem módosítja a stream forrását. Streameket létre lehet hozni: Kollekciókból, Tömbökből, Egyedi objektumokból. 
+**Streamek:**
+Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttük tárhely. Egy művelet egy streamen egy eredményt hoz létre, de nem módosítja a stream forrását. Streameket létre lehet hozni: Kollekciókból, Tömbökből, Egyedi objektumokból. 
 	
 
 **Stream műveletek: **
-		Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
+Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
 		
 Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékhatást eredményeznek. Tehát void vagy nem stream visszatérési típusúak. Példák: count(), max(), forEach()
 		
