@@ -1,4 +1,4 @@
-#A Java SE/JDK új lehetőségei:#
+#A Java SE/JDK új lehetőségei:
 
 
 **Boilerplate kód fogalma:**
