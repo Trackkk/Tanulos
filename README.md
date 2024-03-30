@@ -74,32 +74,32 @@ Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ah
 	
 - Régi stílusú inicializálás:
 
-	String html = "<!DOCTYPE html>\n" +
-	"<html lang=\"en\">\n" +
-		" <head>\n" +
-			" <meta charset=\"utf-8\">\n" +
-			" <title>Hello, World!</title>\n" +
-		" </head>\n" +
-		" <body>\n" +
-			" <p>Hello, World!</p>\n" +
-		" </body>\n" +
-	"</html>\n";
+		String html = "<!DOCTYPE html>\n" +
+		"<html lang=\"en\">\n" +
+			" <head>\n" +
+				" <meta charset=\"utf-8\">\n" +
+				" <title>Hello, World!</title>\n" +
+			" </head>\n" +
+			" <body>\n" +
+				" <p>Hello, World!</p>\n" +
+			" </body>\n" +
+		"</html>\n";
 	
 	
 - Új stílusú inicializálás szöveggblokk segítségével:
 
-	var html = """
-		<!DOCTYPE html>
-		<html lang="en">
-			<head>
-				<meta charset="utf-8">
-				<title>Hello, World!</title>
-			</head>
-			<body>
-				<p>Hello, World!</p>
-			</body>
-		</html>
-		""";
+		var html = """
+			<!DOCTYPE html>
+			<html lang="en">
+				<head>
+					<meta charset="utf-8">
+					<title>Hello, World!</title>
+				</head>
+				<body>
+					<p>Hello, World!</p>
+				</body>
+			</html>
+			""";
 	
 	
 **Mintaillesztés az instanceof operátorhoz:**
@@ -275,25 +275,25 @@ Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékh
 			A terminális műveletek majdnem minden esetben mohó kiértékelésűek. Egy terminális művelet végrehajtása indítja el az adatforrás bejárását, a csővezeték feldolgozása a visszatérés előtt fejeződik be.
 		Csővezetékek végrehajtása: Vertikálisan történik, ami csökkentheti az elemeken végrehajthandó műveletek számát. 
 									A terminális művelet végrehajtása során a csővezeték elhasználódik és nem használható többé.
-	Streamek: redukciós műveletek (reduce, collect):
-			- egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
-			Reduce: elemek egy sorozatát egyetlen elemre redukálja.
-				- Egységelem (identity): a redukció kezdőértéke, alapértelmezett értéke, ha nincsenek input elem
-				- Akkumulátor (accumulator): egy függvény, mely két paramétert kap (a redukció egy részleges eredményét, következő elemet) -> új részleges eredményt állít elő.
-				- Egyesítő (combiner): egy kétparaméteres függvény, mely két részleges eredményt kap -> egy új részleges eredménnyé egyesíti. 
-			A reduce() műveletnek három formája van: 
-				reduce(akkumulátor)
-				reduce(egységelem, akkumulátor)
-				reduce(egységelem, akkumulátor, egyesítő)
-			Collect:  egy módosítható eredmény konténerbe (pl. egy kollekció vagy egy StringBuilder) gyűjti össze az input elemeket a stream elemeinek feldolgozásakor
-				- Ellátó (supplier): egy új módosítható eredmény konténert létrehozó függvény
-				- Akkumulátor (accumulator): egy konténerbe egy elemet helyező függvény.
-				- Egyesítő (combiner): egy függvény, mely két részleges eredmény konténert fésül össze, a második konténer elemeit az első konténerbe helyezi
-				- Befejező (finisher): egy végső transzformációt végez egy eredmény konténeren
-				- Gyűjtő (collector): egy ellátó, egy akkumulátor, egy egyesítő és egy opcionális befejező alkotja.
-			A collect() műveletnek két formája van:
-				collect(ellátó, akkumulátor, egyesítő)
-				collect(gyűjtő)
+**Streamek: redukciós műveletek (reduce, collect):**
+egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
+	- Reduce: elemek egy sorozatát egyetlen elemre redukálja.
+		- Egységelem (identity): a redukció kezdőértéke, alapértelmezett értéke, ha nincsenek input elem
+		- Akkumulátor (accumulator): egy függvény, mely két paramétert kap (a redukció egy részleges eredményét, következő elemet) -> új részleges eredményt állít elő.
+		- Egyesítő (combiner): egy kétparaméteres függvény, mely két részleges eredményt kap -> egy új részleges eredménnyé egyesíti. 
+	- A reduce() műveletnek három formája van: 
+		reduce(akkumulátor)
+		reduce(egységelem, akkumulátor)
+		reduce(egységelem, akkumulátor, egyesítő)
+	- Collect:  egy módosítható eredmény konténerbe (pl. egy kollekció vagy egy StringBuilder) gyűjti össze az input elemeket a stream elemeinek feldolgozásakor
+		- Ellátó (supplier): egy új módosítható eredmény konténert létrehozó függvény
+		- Akkumulátor (accumulator): egy konténerbe egy elemet helyező függvény.
+		- Egyesítő (combiner): egy függvény, mely két részleges eredmény konténert fésül össze, a második konténer elemeit az első konténerbe helyezi
+		- Befejező (finisher): egy végső transzformációt végez egy eredmény konténeren
+		- Gyűjtő (collector): egy ellátó, egy akkumulátor, egy egyesítő és egy opcionális befejező alkotja.
+	- A collect() műveletnek két formája van:
+		collect(ellátó, akkumulátor, egyesítő)
+		collect(gyűjtő)
 			
 	
 **Streamek: párhuzamosság:**
@@ -303,6 +303,6 @@ kollekció parallelStream(), már létező szekvenciális stream parallel().
 	A párhuzamos streamek egy megosztott szálkészletet használnak, mely a ForkJoinPool.commonPool() statikus metódushívásával kapható meg. 
 	
 	
-Gonosz számok megszámolása: a párhuzamos streammel gyorsabb mint a szekvenciális streammel.
+- Gonosz számok megszámolása: a párhuzamos streammel gyorsabb mint a szekvenciális streammel.
 	A számok listába gyűjtése: ekkor a szekvenciális stream gyorsabb.
 	A gonosz számok számolása hagyományos for ciklussal :  a szekvenciális stream gyorsabb.
