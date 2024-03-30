@@ -118,6 +118,7 @@ Rekord osztályok:
 	Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
 	Egy rekord osztálynak minden egyes komponenséhez van egy implicit módon deklarált lekérdező metódusa. Van implicit módon deklarált konstruktora, equals(), hashCode() és toString() metódusa is
 	Pl.:
+ 
 	record LegoSet(String number, Year year, int pieces) {}
 	var legoSet = new LegoSet("75211", Year.of(2018), 519);
 	System.out.println(legoSet.number()); // 75211
