@@ -1,20 +1,21 @@
-#8. A Java SE/JDK új lehetőségei:
-###Boilerplate kód fogalma: 
+8. A Java SE/JDK új lehetőségei:
+Boilerplate kód fogalma: 
 	A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
-###Előzetes lehetőség (preview feature):
+Előzetes lehetőség (preview feature):
 	Az előzetes lehetőségek három fajtája: előzetes nyelvi lehetőségek, előzetes VM lehetőségek, előzetes API-k. 
 		- pontosan meghatározott, teljesen implementált, de még nem végleges. 
 		- soha nem kísérleti, kockázatos, hiányos vagy instabil.
 		- A JDK parancssori eszközöknek a --enable-preview parancssori opciót kell megadni az előzetes lehetőségek engedélyezéséhez. 
 	
 	
-###Lokális változók kikövetkeztetés:
+Lokális változók kikövetkeztetés:
 	A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
 	A nem null kezdőértékű lokális változók típus megadása nélkül deklarálhatók a "var" azonosítóval.
 	A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
 
 Helyes:
+
 		var i = 0;
 		var numberOfItems = 0L;
 		var epsilon = 1e-10;
@@ -26,6 +27,7 @@ Helyes:
 	
 	
 Helytelen(Hibát okoz):
+
 		var a = 1, b = 2;
 		var[] c = new int[5];
 		var d = {1, 2, 3};
@@ -67,7 +69,7 @@ Switch utasítás/kifejezések:
 		}
 	}
 
-###Szövegblokkok:
+Szövegblokkok:
 	Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ahol egy közönséges sztring literál.  Pl.: 
 	
 Régi stílusú inicializálás:
@@ -100,7 +102,7 @@ Régi stílusú inicializálás:
 		""";
 	
 	
-###Mintaillesztés az instanceof operátorhoz:
+Mintaillesztés az instanceof operátorhoz:
 	Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
 	Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
 	
@@ -111,7 +113,7 @@ Régi stílusú inicializálás:
 	}
 	
 	
-###Rekord osztályok:
+Rekord osztályok:
 	A java.lang.Record osztály alosztályai.
 	Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
 	
@@ -148,33 +150,31 @@ System.out.println(s);
 	System.out.println(s);
 	
 
-	2. A Java haladó szintű lehetőségei:
-
-	Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:
+2. A Java haladó szintű lehetőségei:
+Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:
 	Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
 	
 	Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik lehetővé új metódusok hozzáadását egy interfészhez, hogy azok automatikusan rendelkezésre állnak minden implementációban. (Ráadásul ezen metódusok hozzáadása nem igényli a létező implementációk módosítását vagy újra fordítását. Ezt bináris kompatibilitásnak nevezik.)
 
 	Implicit módon absztrakt minden olyan interfész metódus, melynek nincs private, default vagy static módosítója.
+
+	Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
+	Amikor egy interfész kiterjeszt egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
+	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
+	– Újradefiniálhatja a metódust, felülírva azt.
+	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az implementáló osztályokat.
 	
-	
-		Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
-		Amikor egy interfész kiterjeszt egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
-		– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
-		– Újradefiniálhatja a metódust, felülírva azt.
-		– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az implementáló osztályokat.
-		
-		Hasonlóan, amikor egy osztály implementál egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
-		– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
-		– Újradefiniálhatja a metódust, felülírva azt.
-		– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az alosztályokat. (Ez a lehetőség csak akkor adott, ha az osztály absztrakt.)
+	Hasonlóan, amikor egy osztály implementál egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
+	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
+	– Újradefiniálhatja a metódust, felülírva azt.
+	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az alosztályokat. (Ez a lehetőség csak akkor adott, ha az osztály absztrakt.)
 		
 		
-		Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. Lehetővé teszik egy interfészhez kötődő konkrét segédmetódusok hozzáadását közvetlenül magához az interfészhez.
+	Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. Lehetővé teszik egy interfészhez kötődő konkrét segédmetódusok hozzáadását közvetlenül magához az interfészhez.
 		Fordítási hiba egy statikus metódus törzsében a "this" vagy a "super" kulcsszó előfordulása. 
 		
 		
-		Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
+	Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
 	
 
 java.util.Optional: 
@@ -188,13 +188,15 @@ Funkcionális interfészek:
 	
 
 Beépített funkcionális interfészek: 
-		Consumer:  java.util.function.Consumer<T>
+
+	Consumer:  java.util.function.Consumer<T>
 				- Egyetlen input argumentumot vár és nem ad vissza eredményt  és várhatóan mellékhatást fejt ki
 				- Funkcionális metódusa: void accept(T t).
 				- Nem absztrakt metódusai:
 					andThen(after): egy összetett Consumer-t ad vissza, mely először a példány által ábrázolt műveletet hajtja vége, majd az after műveletet
-				
-		Function: java.util.function.Function <T, R>
+
+
+	Function: java.util.function.Function <T, R>
 				- Egy eredményt létrehozó egyargumentumú függvényt ábrázol.
 				- Funkcionális metódusa: R apply(T t).
 				- Nem absztrakt metódusai:
