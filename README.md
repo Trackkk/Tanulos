@@ -39,7 +39,7 @@
 	
 	
 	
-**Switch utasítás/kifejezések:**
+## **Switch utasítás/kifejezések:**
 - Minden lehetséges esethez kell, hogy legyen egy illeszkedő címke, azaz default záradék szükséges kivéve, az összes enum konstanst lefedő enum switch kifejezéseknél.
 - Switch kifejezésnek vagy normális módon egy értékkel kell befejeződnie, vagy váratlanul egy kivétel dobásával.
 - A switch címke egy új formája (case ... ->) került bevezetésre, mely esetenként több vesszővel elválasztott konstanst is megenged. 
@@ -71,7 +71,7 @@
 			}
 		}
 
-**Szövegblokkok:**
+## **Szövegblokkok:**
 - Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ahol egy közönséges sztring literál.  Pl.: 
 	
 	- Régi stílusú inicializálás:
@@ -104,7 +104,7 @@
 				""";
 		
 	
-**Mintaillesztés az instanceof operátorhoz:**
+## **Mintaillesztés az instanceof operátorhoz:**
 - Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
 - Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
 	
@@ -115,7 +115,7 @@
 		}
 	
 	
-**Rekord osztályok:**
+## **Rekord osztályok:**
 - A java.lang.Record osztály alosztályai.
 - Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
 - Egy rekord osztálynak minden egyes komponenséhez van egy implicit módon deklarált lekérdező metódusa. Van implicit módon deklarált konstruktora, equals(), hashCode() és toString() metódusa is
@@ -127,7 +127,7 @@
 			System.out.println(legoSet.year()); // 2018
 	
 	
-**Sztring sablonok:**
+## **Sztring sablonok:**
 - Számos programozási nyelv (pl.: a C#, JavaScript, Python)  teszi lehetővé a sztring interpolációt a sztring összefűzés alternatívájaként. 
 - Az interpoláció kifejezések sztring literálokba történő beágyazását jelenti, melyek automatikusan kiértékelésre és az értékükkel való helyettesítésre kerülnek.
 - Az interpoláció veszélyes lehet, mivel ki van téve a befecskendezéses támadásoknak.
@@ -154,7 +154,7 @@
 
 # A Java haladó szintű lehetőségei:
    
-**Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:**
+## **Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:**
 
 - Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
 	
@@ -182,17 +182,17 @@
 - Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
 	
 
-**java.util.Optional:**
+## **java.util.Optional:**
 Egy konténer objektum, mely vagy tartalmaz egy nem null értéket, vagy nem.
 Elsődlegesen olyan metódusok visszatérési típusaként szolgál, melyeknél egyértelműen szükséges a „nincs eredmény” ábrázolása és ahol null használata valószínűleg hibát okoz.
 Egy Optional típusú változó értéke soha nem szabad, hogy null legyen, mindig egy Optional példányra kell, hogy mutasson.
 	
 	
-**Funkcionális interfészek:**
+## **Funkcionális interfészek:**
 Egy olyan interfész, melynek csak egy absztrakt metódusa van. De akár több alapértelmezett, statikus és/vagy privát metódusa is lehet.
 	
 
-**Beépített funkcionális interfészek:**
+## **Beépített funkcionális interfészek:**
 - Consumer:  java.util.function.Consumer<T>
 				- Egyetlen input argumentumot vár és nem ad vissza eredményt  és várhatóan mellékhatást fejt ki
 				- Funkcionális metódusa: void accept(T t).
@@ -223,22 +223,22 @@ Egy olyan interfész, melynek csak egy absztrakt metódusa van. De akár több a
 				- Funkcionális metódusa: T get().
 				- Nem absztrakt metódusai: nincsenek
 
-**Lambda kifejezések:**
-	Egy funkcionális interfészt implementáló névtelen belső osztály egy példányát ábrázolják nagyon tömören. 
+## **Lambda kifejezések:**
+- Egy funkcionális interfészt implementáló névtelen belső osztály egy példányát ábrázolják nagyon tömören. 
 
-	new VmilyenFunkcionálisInterfész() {
-		@Override
-		VmilyenTípus vmilyenMetódus(paraméterek) {
-			törzs
+		new VmilyenFunkcionálisInterfész() {
+			@Override
+			VmilyenTípus vmilyenMetódus(paraméterek) {
+				törzs
+			}
 		}
-	}
-Vele ekvivalens lambda kifejezés:
+- Vele ekvivalens lambda kifejezés:
 
-	 (paraméterek) -> {törzs}
+		 (paraméterek) -> {törzs}
 	
 
-**Metódus referenciák:**
-Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
+## **Metódus referenciák:**
+- Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
 
 - Lambda: Function<String, Integer> stringLength = (str) -> str.length();
 - Metódus referencia: Function<String, Integer> stringLength = String::length;
@@ -253,11 +253,11 @@ Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk a
 	
 	
 		
-**Streamek:**
-Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttük tárhely. Egy művelet egy streamen egy eredményt hoz létre, de nem módosítja a stream forrását. Streameket létre lehet hozni: Kollekciókból, Tömbökből, Egyedi objektumokból. 
+## **Streamek:**
+- Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttük tárhely. Egy művelet egy streamen egy eredményt hoz létre, de nem módosítja a stream forrását. Streameket létre lehet hozni: Kollekciókból, Tömbökből, Egyedi objektumokból. 
 	
 
-**Stream műveletek:**
+## **Stream műveletek:**
 - Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
 		
 - Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékhatást eredményeznek. Tehát void vagy nem stream visszatérési típusúak. Példák: count(), max(), forEach()
@@ -267,20 +267,18 @@ Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttü
 - Állapotőrző műveletek: Felhasználhatnak a korábban látott elemekből állapotot, amikor új elemeket dolgoznak fel. Példák: distinct(), sorted()
 	
 
-**Streamek: viselkedési paraméterek kívánatos jellemzői (interferencia-mentesség, állapotmentesség):**
-		Interferencia-mentesség: A viselkedési paraméterek nem szabad, hogy módosítsák a stream adatforrását.
-		Állapotmentesség: Egy lambda kifejezés állapotőrző, ha eredménye olyan állapottól függ, mely a stream csővezeték végrehajtása során megváltozhat. 
+## **Streamek: viselkedési paraméterek kívánatos jellemzői (interferencia-mentesség, állapotmentesség):**
+- Interferencia-mentesség: A viselkedési paraméterek nem szabad, hogy módosítsák a stream adatforrását.
+- Állapotmentesség: Egy lambda kifejezés állapotőrző, ha eredménye olyan állapottól függ, mely a stream csővezeték végrehajtása során megváltozhat. 
 
-**Stream csővezetékek, műveletek kiértékelése, csővezetékek végrehajtása:**
+## **Stream csővezetékek, műveletek kiértékelése, csővezetékek végrehajtása:**
 - Csővezetékek: Stream műveletek egy csővezetékké láncolhatók össze, mely egy forrásból áll, melyet nulla vagy több köztes művelet és egy terminális művelet követ.
-- Műveletek kiértékelése:
-			A köztes műveletek mindig lusta kiértékelésűek. Egy köztes művelet végrehajtása nem eredményez műveletvégzést.
-			A terminális műveletek majdnem minden esetben mohó kiértékelésűek. Egy terminális művelet végrehajtása indítja el az adatforrás bejárását, a csővezeték feldolgozása a visszatérés előtt fejeződik be.
+- Műveletek kiértékelése: A köztes műveletek mindig lusta kiértékelésűek. Egy köztes művelet végrehajtása nem eredményez műveletvégzést. A terminális műveletek majdnem minden esetben mohó kiértékelésűek. Egy terminális művelet végrehajtása indítja el az adatforrás bejárását, a csővezeték feldolgozása a visszatérés előtt fejeződik be.
 - Csővezetékek végrehajtása: Vertikálisan történik, ami csökkentheti az elemeken végrehajthandó műveletek számát. 
 A terminális művelet végrehajtása során a csővezeték elhasználódik és nem használható többé.
 
 
-**Streamek: redukciós műveletek (reduce, collect):**
+## **Streamek: redukciós műveletek (reduce, collect):**
 - egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő eredményt képez egy egyesítő művelet ismételt alkalmazásával.
 - Reduce: elemek egy sorozatát egyetlen elemre redukálja.
 	- *Egységelem (identity):* a redukció kezdőértéke, alapértelmezett értéke, ha nincsenek input elem
@@ -301,12 +299,12 @@ A terminális művelet végrehajtása során a csővezeték elhasználódik és 
 		- collect(gyűjtő)
 			
 	
-**Streamek: párhuzamosság:**
-stream megvalósításai szekvenciális streameket hoznak létre, hacsak nem kérünk kifejezetten párhuzamosságot [ stream(), parallelStream() ]. A findAny()) kivételével egy számítás eredményét nem befolyásolja az, hogy szekvenciális vagy párhuzamos. 
+## **Streamek: párhuzamosság:**
+- Stream megvalósításai szekvenciális streameket hoznak létre, hacsak nem kérünk kifejezetten párhuzamosságot [ stream(), parallelStream() ]. A findAny()) kivételével egy számítás eredményét nem befolyásolja az, hogy szekvenciális vagy párhuzamos. 
 
-Így kaphatunk párhuzamos streamet:
-- kollekció parallelStream(), már létező szekvenciális stream parallel().
-	A párhuzamos streamek egy megosztott szálkészletet használnak, mely a ForkJoinPool.commonPool() statikus metódushívásával kapható meg. 
+- Így kaphatunk párhuzamos streamet:
+	- kollekció parallelStream(), már létező szekvenciális stream parallel().
+	- A párhuzamos streamek egy megosztott szálkészletet használnak, mely a ForkJoinPool.commonPool() statikus metódushívásával kapható meg. 
 	
 	
 - Gonosz számok megszámolása: a párhuzamos streammel gyorsabb mint a szekvenciális streammel.
