@@ -255,13 +255,13 @@ Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttü
 	
 
 **Stream műveletek:**
-Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
+- Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
 		
-Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékhatást eredményeznek. Tehát void vagy nem stream visszatérési típusúak. Példák: count(), max(), forEach()
+- Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékhatást eredményeznek. Tehát void vagy nem stream visszatérési típusúak. Példák: count(), max(), forEach()
 		
-Állapotmentes: Minden egyes elem a többi elemen történő műveletektől függetlenül dolgozható fel. Példák: filter(), map()
+- Állapotmentes: Minden egyes elem a többi elemen történő műveletektől függetlenül dolgozható fel. Példák: filter(), map()
 		
-Állapotőrző műveletek: Felhasználhatnak a korábban látott elemekből állapotot, amikor új elemeket dolgoznak fel. Példák: distinct(), sorted()
+- Állapotőrző műveletek: Felhasználhatnak a korábban látott elemekből állapotot, amikor új elemeket dolgoznak fel. Példák: distinct(), sorted()
 	
 
 **Streamek: viselkedési paraméterek kívánatos jellemzői (interferencia-mentesség, állapotmentesség):**
@@ -298,8 +298,9 @@ egy terminális művelet, mely egy input elemsorozatból egyetlen összesítő e
 	
 **Streamek: párhuzamosság:**
 stream megvalósításai szekvenciális streameket hoznak létre, hacsak nem kérünk kifejezetten párhuzamosságot [ stream(), parallelStream() ]. A findAny()) kivételével egy számítás eredményét nem befolyásolja az, hogy szekvenciális vagy párhuzamos. 
-	Így kaphatunk párhuzamos streamet:
-kollekció parallelStream(), már létező szekvenciális stream parallel().
+
+Így kaphatunk párhuzamos streamet:
+- kollekció parallelStream(), már létező szekvenciális stream parallel().
 	A párhuzamos streamek egy megosztott szálkészletet használnak, mely a ForkJoinPool.commonPool() statikus metódushívásával kapható meg. 
 	
 	
