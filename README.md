@@ -1,4 +1,4 @@
-8. A Java SE/JDK új lehetőségei:
+#8. A Java SE/JDK új lehetőségei:
 Boilerplate kód fogalma: 
 	A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
