@@ -188,7 +188,7 @@ Private:  private módosító kombinálható a static módosítóval. A privát 
 	Egy olyan interfész, melynek csak egy absztrakt metódusa van. De akár több alapértelmezett, statikus és/vagy privát metódusa is lehet.
 	
 
-**Beépített funkcionális interfészek: **
+**Beépített funkcionális interfészek:**
 Consumer:  java.util.function.Consumer<T>
 				- Egyetlen input argumentumot vár és nem ad vissza eredményt  és várhatóan mellékhatást fejt ki
 				- Funkcionális metódusa: void accept(T t).
@@ -233,7 +233,7 @@ Vele ekvivalens lambda kifejezés:
 	 (paraméterek) -> {törzs}
 	
 
-**Metódus referenciák: **
+**Metódus referenciák:**
 Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
 
 Lambda: Function<String, Integer> stringLength = (str) -> str.length();
@@ -253,7 +253,7 @@ Metódus referencia: Function<String, Integer> stringLength = String::length;
 Egy stream elemek egy sorozata, melyen műveletek végezhetők. Nincs mögöttük tárhely. Egy művelet egy streamen egy eredményt hoz létre, de nem módosítja a stream forrását. Streameket létre lehet hozni: Kollekciókból, Tömbökből, Egyedi objektumokból. 
 	
 
-**Stream műveletek: **
+**Stream műveletek:**
 Köztes:  egy új streamet adnak vissza, Példák: filter(), map(), sorted()
 		
 Terminális: Egy streamtől különböző eredményt hoznak létre vagy mellékhatást eredményeznek. Tehát void vagy nem stream visszatérési típusúak. Példák: count(), max(), forEach()
