@@ -1,20 +1,20 @@
-8. A Java SE/JDK új lehetőségei:
+A Java SE/JDK új lehetőségei:
 **Boilerplate kód fogalma:**
-	A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
+A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
 **Előzetes lehetőség (preview feature):**
-	Az előzetes lehetőségek három fajtája: előzetes nyelvi lehetőségek, előzetes VM lehetőségek, előzetes API-k. 
+Az előzetes lehetőségek három fajtája: előzetes nyelvi lehetőségek, előzetes VM lehetőségek, előzetes API-k. 
 		- pontosan meghatározott, teljesen implementált, de még nem végleges. 
 		- soha nem kísérleti, kockázatos, hiányos vagy instabil.
 		- A JDK parancssori eszközöknek a --enable-preview parancssori opciót kell megadni az előzetes lehetőségek engedélyezéséhez. 
 	
 	
 **Lokális változók kikövetkeztetés:**
-	A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
-	A nem null kezdőértékű lokális változók típus megadása nélkül deklarálhatók a "var" azonosítóval.
-	A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
+A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
+A nem null kezdőértékű lokális változók típus megadása nélkül deklarálhatók a "var" azonosítóval.
+A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
 
-Helyes:
+- Helyes:
 
 		var i = 0;
 		var numberOfItems = 0L;
@@ -26,7 +26,7 @@ Helyes:
 		var lines = Files.readAllLines(Path.of("file.txt"));
 	
 	
-Helytelen(Hibát okoz):
+- Helytelen(Hibát okoz):
 
 		var a = 1, b = 2;
 		var[] c = new int[5];
@@ -70,9 +70,9 @@ Helytelen(Hibát okoz):
 	}
 
 **Szövegblokkok:**
-	Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ahol egy közönséges sztring literál.  Pl.: 
+Egy szövegblokk egy többsoros sztring literál, mely bárhol használható, ahol egy közönséges sztring literál.  Pl.: 
 	
-Régi stílusú inicializálás:
+- Régi stílusú inicializálás:
 
 	String html = "<!DOCTYPE html>\n" +
 	"<html lang=\"en\">\n" +
@@ -86,7 +86,7 @@ Régi stílusú inicializálás:
 	"</html>\n";
 	
 	
-Új stílusú inicializálás szöveggblokk segítségével:
+- Új stílusú inicializálás szöveggblokk segítségével:
 
 	var html = """
 		<!DOCTYPE html>
@@ -103,8 +103,8 @@ Régi stílusú inicializálás:
 	
 	
 **Mintaillesztés az instanceof operátorhoz:**
-	Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
-	Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
+Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
+Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
 	
 	Az instanceof-and-cast idióma:
 	if (obj instanceof String) {
@@ -114,10 +114,10 @@ Régi stílusú inicializálás:
 	
 	
 **Rekord osztályok:**
-	A java.lang.Record osztály alosztályai.
-	Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
-	Egy rekord osztálynak minden egyes komponenséhez van egy implicit módon deklarált lekérdező metódusa. Van implicit módon deklarált konstruktora, equals(), hashCode() és toString() metódusa is
-	Pl.:
+A java.lang.Record osztály alosztályai.
+Nem módosítható adatokat becsomagoló újfajta osztályok. A rekord példányok rekord komponenseknek nevezett rögzített értékek egy halmazát ábrázolják.
+Egy rekord osztálynak minden egyes komponenséhez van egy implicit módon deklarált lekérdező metódusa. Van implicit módon deklarált konstruktora, equals(), hashCode() és toString() metódusa is
+	- Pl.:
  
 	record LegoSet(String number, Year year, int pieces) {}
 	var legoSet = new LegoSet("75211", Year.of(2018), 519);
@@ -126,9 +126,9 @@ Régi stílusú inicializálás:
 	
 	
 **Sztring sablonok:**
-	Számos programozási nyelv (pl.: a C#, JavaScript, Python)  teszi lehetővé a sztring interpolációt a sztring összefűzés alternatívájaként. 
-	Az interpoláció kifejezések sztring literálokba történő beágyazását jelenti, melyek automatikusan kiértékelésre és az értékükkel való helyettesítésre kerülnek.
-	Az interpoláció veszélyes lehet, mivel ki van téve a befecskendezéses támadásoknak.
+Számos programozási nyelv (pl.: a C#, JavaScript, Python)  teszi lehetővé a sztring interpolációt a sztring összefűzés alternatívájaként. 
+Az interpoláció kifejezések sztring literálokba történő beágyazását jelenti, melyek automatikusan kiértékelésre és az értékükkel való helyettesítésre kerülnek.
+Az interpoláció veszélyes lehet, mivel ki van téve a befecskendezéses támadásoknak.
 Sablon kifejezések
 	
 	var width = 1024;
@@ -152,13 +152,14 @@ Sablon kifejezések
 A Java haladó szintű lehetőségei:
    
 **Nem absztrakt (alapértelmezett, statikus, privát) interfész metódusok:**
-Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
+
+- Probléma: hogyan adhatók hozzá új metódusok egy már létező interfészhez? 
 	
-Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik lehetővé új metódusok hozzáadását egy interfészhez, hogy azok automatikusan rendelkezésre állnak minden implementációban. (Ráadásul ezen metódusok hozzáadása nem igényli a létező implementációk módosítását vagy újra fordítását. Ezt bináris kompatibilitásnak nevezik.)
+- Megoldás: az alapértelmezett és statikus interfész metódusok úgy teszik lehetővé új metódusok hozzáadását egy interfészhez, hogy azok automatikusan rendelkezésre állnak minden implementációban. (Ráadásul ezen metódusok hozzáadása nem igényli a létező implementációk módosítását vagy újra fordítását. Ezt bináris kompatibilitásnak nevezik.)
 
-Implicit módon absztrakt minden olyan interfész metódus, melynek nincs private, default vagy static módosítója.
+- Implicit módon absztrakt minden olyan interfész metódus, melynek nincs private, default vagy static módosítója.
 
-Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
+- Default: A metódustörzs a metódus implementációját szolgáltatja az interfészt a metódus felülírása nélkül implementáló osztályok számára.  
 -	Amikor egy interfész kiterjeszt egy alapértelmezett metódust tartalmazó interfészt, akkor a következőket teheti:
 	– Egyáltalán nem említi az alapértelmezett metódust, mely azt jelenti, hogy örökli azt.
 	– Újradefiniálhatja a metódust, felülírva azt.
@@ -171,25 +172,25 @@ Default: A metódustörzs a metódus implementációját szolgáltatja az interf
 	– Absztraktként deklarálhatja újra a metódust, mely a felülírására kényszeríti az alosztályokat. (Ez a lehetőség csak akkor adott, ha az osztály absztrakt.)
 		
 		
-Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. Lehetővé teszik egy interfészhez kötődő konkrét segédmetódusok hozzáadását közvetlenül magához az interfészhez.
+- Statikus:  A statikus interfész metódusokat nem öröklik az alinterfészek. Lehetővé teszik egy interfészhez kötődő konkrét segédmetódusok hozzáadását közvetlenül magához az interfészhez.
 		Fordítási hiba egy statikus metódus törzsében a "this" vagy a "super" kulcsszó előfordulása. 
 		
 		
-Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
+- Private:  private módosító kombinálható a static módosítóval. A privát interfész metódusokat nem öröklik az alinterfészek.
 	
 
 **java.util.Optional:**
-	Egy konténer objektum, mely vagy tartalmaz egy nem null értéket, vagy nem.
-	Elsődlegesen olyan metódusok visszatérési típusaként szolgál, melyeknél egyértelműen szükséges a „nincs eredmény” ábrázolása és ahol null használata valószínűleg hibát okoz.
-	Egy Optional típusú változó értéke soha nem szabad, hogy null legyen, mindig egy Optional példányra kell, hogy mutasson.
+Egy konténer objektum, mely vagy tartalmaz egy nem null értéket, vagy nem.
+Elsődlegesen olyan metódusok visszatérési típusaként szolgál, melyeknél egyértelműen szükséges a „nincs eredmény” ábrázolása és ahol null használata valószínűleg hibát okoz.
+Egy Optional típusú változó értéke soha nem szabad, hogy null legyen, mindig egy Optional példányra kell, hogy mutasson.
 	
 	
 **Funkcionális interfészek:**
-	Egy olyan interfész, melynek csak egy absztrakt metódusa van. De akár több alapértelmezett, statikus és/vagy privát metódusa is lehet.
+Egy olyan interfész, melynek csak egy absztrakt metódusa van. De akár több alapértelmezett, statikus és/vagy privát metódusa is lehet.
 	
 
 **Beépített funkcionális interfészek:**
-Consumer:  java.util.function.Consumer<T>
+- Consumer:  java.util.function.Consumer<T>
 				- Egyetlen input argumentumot vár és nem ad vissza eredményt  és várhatóan mellékhatást fejt ki
 				- Funkcionális metódusa: void accept(T t).
 				- Nem absztrakt metódusai:
@@ -197,7 +198,7 @@ Consumer:  java.util.function.Consumer<T>
 
 
 
-Function: java.util.function.Function <T, R>
+- Function: java.util.function.Function <T, R>
 				- Egy eredményt létrehozó egyargumentumú függvényt ábrázol.
 				- Funkcionális metódusa: R apply(T t).
 				- Nem absztrakt metódusai:
@@ -206,7 +207,7 @@ Function: java.util.function.Function <T, R>
 					identity(): visszaad egy, mindig az argumentumát visszaadó függvényt. 
 
 
-Predicate: java.util.function.Predicate<T>
+- Predicate: java.util.function.Predicate<T>
 				- Egy egyargumentumú predikátumot (logikai értékű függvényt) ábrázol.
 				- Funkcionális metódusa: boolean test(T t). 
 				- Nem absztrakt metódusai:
@@ -214,7 +215,7 @@ Predicate: java.util.function.Predicate<T>
 					negate(): visszaad egy, a példány logikai negáltját ábrázoló predikátumot.
 
 
-Supplier:  java.util.function.Supplier<T>
+- Supplier:  java.util.function.Supplier<T>
 				- Egy eredményeket szolgáltató objektumot ábrázol. 
 				- Funkcionális metódusa: T get().
 				- Nem absztrakt metódusai: nincsenek
@@ -236,16 +237,16 @@ Vele ekvivalens lambda kifejezés:
 **Metódus referenciák:**
 Egy metódus referencia arra szolgál, hogy egy metódushívásra hivatkozzunk anélkül, hogy ténylegesen hívás történne.  Egy metódus referencia kifejezés kiértékelése egy funkcionális interfésztípus egy példányát hozza létre.
 
-Lambda: Function<String, Integer> stringLength = (str) -> str.length();
-Metódus referencia: Function<String, Integer> stringLength = String::length;
+- Lambda: Function<String, Integer> stringLength = (str) -> str.length();
+- Metódus referencia: Function<String, Integer> stringLength = String::length;
 	
-	IntSupplier supplier = "Hello, World!"::length;
-	System.out.println(supplier.getAsInt()); // 13
-	
-	Consumer<Object> consumer = System.out::println;
-	consumer.accept("Hello, World!"); // Hello, World!
-	consumer.accept(42); // 42
-	consumer.accept(LocalDate.now()); // 2021-03-07
+		IntSupplier supplier = "Hello, World!"::length;
+		System.out.println(supplier.getAsInt()); // 13
+		
+		Consumer<Object> consumer = System.out::println;
+		consumer.accept("Hello, World!"); // Hello, World!
+		consumer.accept(42); // 42
+		consumer.accept(LocalDate.now()); // 2021-03-07
 	
 	
 		
