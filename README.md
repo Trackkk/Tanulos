@@ -1,17 +1,17 @@
 # A Java SE/JDK új lehetőségei:
 
 
-**Boilerplate kód fogalma:**
+## **Boilerplate kód fogalma:**
 - A boilerplate kód ismétlődő, sablonkódot jelent, ami szintaxisbeli követelményeknek megfelelő, de nincs valós tartalma. Látszik, hogy sokkal egyszerűbbnek kellene lennie. A Java fejlődése során ezt a felesleges kódot igyekeznek minimalizálni. 
 
-**Előzetes lehetőség (preview feature):**
+## **Előzetes lehetőség (preview feature):**
 - Az előzetes lehetőségek három fajtája: előzetes nyelvi lehetőségek, előzetes VM lehetőségek, előzetes API-k. 
 	- pontosan meghatározott, teljesen implementált, de még nem végleges. 
 	- soha nem kísérleti, kockázatos, hiányos vagy instabil.
 	- A JDK parancssori eszközöknek a --enable-preview parancssori opciót kell megadni az előzetes lehetőségek engedélyezéséhez. 
 	
 	
-**Lokális változók kikövetkeztetés:**
+## **Lokális változók kikövetkeztetés:**
 - A Java fordító a változó típusát fordítási időben következteti ki, ami növeli a kód olvashatóságát és rövidítheti a fejlesztési időt. E  folyamat lényegében az inicializáló kifejezés típusát adja a változónak.
 - A nem null kezdőértékű lokális változók típus megadása nélkül deklarálhatók a "var" azonosítóval.
 - A "var" azonosító nem kulcsszó, hanem egy fenntartott típusnév. A "var" használható változó, metódus vagy csomag neveként. Pl.: hagyományos- vagy for-each ciklusban, try-with-resources.
