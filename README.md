@@ -107,7 +107,8 @@
 ## **Mintaillesztés az instanceof operátorhoz:**
 - Lehetővé teszi egy programban komponensek objektumokból történő feltételes kinyerésének tömörebb és biztonságosabb kifejezését.
 - Egy típus minta egy típust meghatározó predikátumból és egyetlen minta változóból áll.  Az instanceof operátor úgy lett kiterjesztve, hogy csupán egy típus helyet egy típus mintát kapjon.
-	
+- Általában típusellenőrzésre vagy típuskonverzióra használjuk.
+
 		Az instanceof-and-cast idióma:
 		if (obj instanceof String) {
 			String s = (String) obj;
